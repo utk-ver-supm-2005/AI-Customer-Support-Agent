@@ -1,0 +1,9 @@
+CUSTOMER:
+My API isn't working.
+
+SUPPORT:
+Could you please tell us which API version you are using?
+
+CUSTOMER:
+We are using version 4.2. I'm getting 401 Unauthorized on every request.
+I already regenerated the API token but the problem still exists.
