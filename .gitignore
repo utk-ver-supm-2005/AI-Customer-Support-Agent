@@ -5,9 +5,19 @@ __pycache__/
 # Environment variables
 .env
 
+# Credentials & OAuth tokens
+credentials*.json
+client_secret*.json
+token.json
+
 # Virtual environments
 venv/
 .venv/
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
 
 # VS Code
 .vscode/

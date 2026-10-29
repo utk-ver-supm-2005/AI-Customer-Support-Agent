@@ -2,6 +2,7 @@ def build_conversation_context(thread_text):
     """
     Convert a customer-support conversation thread into
     a clean text representation for the AI analyzer.
+    Supports both multi-line and single-line sender labels.
     """
 
     lines = thread_text.strip().splitlines()
@@ -20,7 +21,8 @@ def build_conversation_context(thread_text):
                 )
 
             current_sender = "CUSTOMER"
-            current_message = []
+            inline_msg = line[len("CUSTOMER:"):].strip()
+            current_message = [inline_msg] if inline_msg else []
 
         elif line.startswith("SUPPORT:"):
             if current_sender is not None:
@@ -29,7 +31,8 @@ def build_conversation_context(thread_text):
                 )
 
             current_sender = "SUPPORT"
-            current_message = []
+            inline_msg = line[len("SUPPORT:"):].strip()
+            current_message = [inline_msg] if inline_msg else []
 
         elif line.strip():
             current_message.append(line.strip())
